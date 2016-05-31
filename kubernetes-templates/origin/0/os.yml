@@ -6,10 +6,13 @@ metadata:
     name: origin
     app: origin
 spec:
+  hostNetwork: true
   restartPolicy: Always
   containers: 
     - image: "openshift/origin"
       name: "origin"
+      securityContext:
+        privileged: true
       command: 
         - "/usr/bin/openshift"
         - "start"
