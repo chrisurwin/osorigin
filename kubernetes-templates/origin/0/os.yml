@@ -11,6 +11,7 @@ spec:
     - image: "openshift/origin"
       name: "origin"
       command: 
+        - "/usr/bin/openshift"
         - "start"
       ports:
       - containerPort: 8443
