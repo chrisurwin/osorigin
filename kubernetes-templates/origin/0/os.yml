@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: origin
+  labels: 
+    name: origin
+    app: origin
+spec:
+  restartPolicy: Always
+  containers: 
+    - image: "openshift/origin"
+      name: "origin"
+      command: start
+      ports:
+      - containerPort: 8443
+        name: origin
+      env:
+      volumeMounts:
+        - name: "rootfs"
+          mountPath: /rootfs
+        - name: "varrun"
+          mountPath: /var/run
+        - name: "sys"
+          mountPath: /sys
+        - name: "docker"
+          mountPath: /var/lib/docker
+        - name: "origin"
+          mountPath: /var/lib/origin/openshift.local.volumes
+  volumes:
+    - name: "rootfs"
+      hostPath: /
+    - name: "varrun"
+      hostPath: /var/run      
+    - name: "sys"
+      hostPath: /sys      
+    - name: "docker"
+      hostPath: /var/lib/docker`      
+    - name: "origin"
+      hostPath: /var/lib/origin/openshift.local.volumes                        
