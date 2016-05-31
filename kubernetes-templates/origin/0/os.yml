@@ -28,12 +28,17 @@ spec:
           mountPath: /var/lib/origin/openshift.local.volumes
   volumes:
     - name: "rootfs"
-      hostPath: /
+      hostPath: 
+          path: /
     - name: "varrun"
-      hostPath: /var/run      
+      hostPath: 
+          path: /var/run      
     - name: "sys"
-      hostPath: /sys      
+      hostPath: 
+          path: /sys      
     - name: "docker"
-      hostPath: /var/lib/docker`      
+      hostPath: 
+          path: /var/lib/docker`      
     - name: "origin"
-      hostPath: /var/lib/origin/openshift.local.volumes                        
+      hostPath: 
+          path: /var/lib/origin/openshift.local.volumes                        
