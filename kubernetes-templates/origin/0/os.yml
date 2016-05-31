@@ -6,7 +6,6 @@ metadata:
     name: origin
     app: origin
 spec:
-  hostNetwork: true
   restartPolicy: Always
   containers: 
     - image: "openshift/origin"
